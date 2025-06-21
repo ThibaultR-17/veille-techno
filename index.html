@@ -18,18 +18,13 @@
   </main>
 
   <script>
-    const structure = {
-      "cybersecurite": ["articles1.json", "articles2.json"],
-      "ia": ["articles1.json"],
-      "web3": ["sources.json"]
-    };
-
     const basePath = "data";
 
     const mainTabs = document.getElementById('main-tabs');
     const subTabs = document.getElementById('sub-tabs');
     const content = document.getElementById('content');
 
+    let structure = {};
     let currentTheme = null;
 
     function createTab(name, onClick, active = false) {
@@ -81,24 +76,36 @@
     function loadSubTabs(theme) {
       currentTheme = theme;
       subTabs.innerHTML = '';
-      structure[theme].forEach((file, index) => {
+      const files = structure[theme];
+      files.forEach((file, index) => {
         subTabs.appendChild(
           createTab(file.replace('.json', ''), () => loadArticleData(theme, file), index === 0)
         );
       });
-      loadArticleData(theme, structure[theme][0]);
+      if (files.length > 0) loadArticleData(theme, files[0]);
     }
 
-    // Create main tabs
+    async function loadStructure() {
+  try {
+    const res = await fetch(`${basePath}/structure.json`);
+    structure = await res.json();
+
     Object.keys(structure).forEach((theme, index) => {
       mainTabs.appendChild(
         createTab(theme.charAt(0).toUpperCase() + theme.slice(1), () => loadSubTabs(theme), index === 0)
       );
     });
 
-    // Load first theme by default
-    const firstTheme = Object.keys(structure)[0];
-    loadSubTabs(firstTheme);
+    if (Object.keys(structure).length > 0) {
+      loadSubTabs(Object.keys(structure)[0]);
+    }
+  } catch (err) {
+    console.error("Erreur lors du chargement de structure.json:", err);
+  }
+}
+
+loadStructure();
+
   </script>
 </body>
 </html>

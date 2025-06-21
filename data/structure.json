@@ -1,0 +1,11 @@
+{
+  "fingerprinting": [
+    "fingerprinting.json"
+  ],
+  "TLS_client": [
+    "tls_client.json"
+  ],
+  "VPN Maillé": [
+    "vpn_maille.json"
+  ]
+}
