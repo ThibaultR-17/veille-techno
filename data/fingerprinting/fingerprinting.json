@@ -1,0 +1,40 @@
+{
+  "titre": "Device Fingerprinting",
+  "articles": [
+    {
+      "titre": "The Quiet Way Advertisers Are Tracking You",
+      "resume": "Comment les publicitaires exploitent le fingerprinting pour suivre les utilisateurs.",
+      "points": ["Unicité élevée", "Impossible à bloquer", "Contournement du RGPD"]
+    },
+    {
+      "titre": "ICO critique Google sur le fingerprinting",
+      "resume": "Le régulateur britannique met en garde contre les usages abusifs du fingerprinting.",
+      "points": ["Absence de consentement clair", "Violation potentielle du RGPD"]
+    },
+    {
+      "titre": "Device Fingerprinting in Anti-Fraud",
+      "resume": "Utilisation du fingerprinting pour la détection des fraudes dans le secteur bancaire.",
+      "points": ["Haute précision", "Analyse combinée de données", "Utilisation IP/Data center"]
+    },
+    {
+      "titre": "Introduction au fingerprinting (Shield)",
+      "resume": "Vue d’ensemble des techniques de fingerprinting et leurs risques.",
+      "points": ["Données persistantes", "Traçabilité accrue", "Peut contourner les VPN"]
+    },
+    {
+      "titre": "Pros and Cons (Admixer)",
+      "resume": "Analyse marketing du fingerprinting côté publicité.",
+      "points": ["Ciblage publicitaire", "Durabilité des profils", "Conflits avec la vie privée"]
+    },
+    {
+      "titre": "Survey on Device Behavior Fingerprinting (ArXiv)",
+      "resume": "Survol des techniques ML appliquées au fingerprinting IoT.",
+      "points": ["Comportements de trafic", "Classification machine learning", "Sécurité réseau"]
+    },
+    {
+      "titre": "Physical Layer Device Fingerprinting",
+      "resume": "Utilisation du matériel et du canal pour fingerprinting sans couche logicielle.",
+      "points": ["Fiabilité accrue", "Pas de chiffrement nécessaire", "Compatible IoT"]
+    }
+  ]
+}
