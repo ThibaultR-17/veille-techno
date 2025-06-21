@@ -56,14 +56,15 @@
 
             // Lien affiché dans un paragraphe
             if (article.lien) {
-              const linkEl = document.createElement('a');
-              linkEl.href = article.lien;
-              linkEl.target = '_blank';
-              linkEl.rel = 'noopener noreferrer';
-              linkEl.textContent = 'Lire l\'article';
-              linkEl.className = 'text-blue-600 hover:underline text-sm block mb-2';
-              articleEl.appendChild(linkEl);
+                const linkEl = document.createElement('a');
+                linkEl.href = article.lien;
+                linkEl.target = '_blank';
+                linkEl.rel = 'noopener noreferrer';
+                linkEl.textContent = "Lire l'article";
+                linkEl.className = 'text-blue-600 hover:underline text-sm block mb-2';
+                articleEl.appendChild(linkEl);
             }
+
 
             const p = document.createElement('p');
             p.textContent = article.resume;
