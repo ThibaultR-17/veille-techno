@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Veille Technologique</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -54,22 +54,38 @@
             h3.className = 'text-lg font-semibold';
             articleEl.appendChild(h3);
 
+            // Lien affiché dans un paragraphe
+            if (article.lien) {
+              const linkEl = document.createElement('a');
+              linkEl.href = article.lien;
+              linkEl.target = '_blank';
+              linkEl.rel = 'noopener noreferrer';
+              linkEl.textContent = 'Lire l\'article';
+              linkEl.className = 'text-blue-600 hover:underline text-sm block mb-2';
+              articleEl.appendChild(linkEl);
+            }
+
             const p = document.createElement('p');
             p.textContent = article.resume;
-            p.className = 'text-sm my-2';
+            p.className = 'text-sm my-2 whitespace-pre-wrap'; // pour garder le format propre
             articleEl.appendChild(p);
 
-            const ul = document.createElement('ul');
-            ul.className = 'list-disc pl-6 text-sm';
-            article.points.forEach(point => {
-              const li = document.createElement('li');
-              li.textContent = point;
-              ul.appendChild(li);
-            });
-            articleEl.appendChild(ul);
+            if (article.points && article.points.length > 0) {
+              const ul = document.createElement('ul');
+              ul.className = 'list-disc pl-6 text-sm';
+              article.points.forEach(point => {
+                const li = document.createElement('li');
+                li.textContent = point;
+                ul.appendChild(li);
+              });
+              articleEl.appendChild(ul);
+            }
 
             content.appendChild(articleEl);
           });
+        })
+        .catch(err => {
+          content.innerHTML = `<p class="text-red-600">Erreur lors du chargement des données : ${err.message}</p>`;
         });
     }
 
@@ -86,26 +102,26 @@
     }
 
     async function loadStructure() {
-  try {
-    const res = await fetch(`${basePath}/structure.json`);
-    structure = await res.json();
+      try {
+        const res = await fetch(`${basePath}/structure.json`);
+        structure = await res.json();
 
-    Object.keys(structure).forEach((theme, index) => {
-      mainTabs.appendChild(
-        createTab(theme.charAt(0).toUpperCase() + theme.slice(1), () => loadSubTabs(theme), index === 0)
-      );
-    });
+        Object.keys(structure).forEach((theme, index) => {
+          mainTabs.appendChild(
+            createTab(theme.charAt(0).toUpperCase() + theme.slice(1), () => loadSubTabs(theme), index === 0)
+          );
+        });
 
-    if (Object.keys(structure).length > 0) {
-      loadSubTabs(Object.keys(structure)[0]);
+        if (Object.keys(structure).length > 0) {
+          loadSubTabs(Object.keys(structure)[0]);
+        }
+      } catch (err) {
+        console.error("Erreur lors du chargement de structure.json:", err);
+        content.innerHTML = `<p class="text-red-600">Erreur lors du chargement de la structure : ${err.message}</p>`;
+      }
     }
-  } catch (err) {
-    console.error("Erreur lors du chargement de structure.json:", err);
-  }
-}
 
-loadStructure();
-
+    loadStructure();
   </script>
 </body>
 </html>
