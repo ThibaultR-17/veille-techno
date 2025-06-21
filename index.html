@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veille Technologique</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <header class="bg-blue-600 text-white p-4">
+    <h1 class="text-2xl font-bold">Veille Technologique</h1>
+    <nav id="main-tabs" class="flex space-x-4 mt-2"></nav>
+  </header>
+
+  <main class="p-4">
+    <div id="sub-tabs" class="flex space-x-4 mb-4"></div>
+    <section id="content" class="space-y-4"></section>
+  </main>
+
+  <script>
+    const structure = {
+      "cybersecurite": ["articles1.json", "articles2.json"],
+      "ia": ["articles1.json"],
+      "web3": ["sources.json"]
+    };
+
+    const basePath = "data";
+
+    const mainTabs = document.getElementById('main-tabs');
+    const subTabs = document.getElementById('sub-tabs');
+    const content = document.getElementById('content');
+
+    let currentTheme = null;
+
+    function createTab(name, onClick, active = false) {
+      const tab = document.createElement('button');
+      tab.textContent = name;
+      tab.className = `px-4 py-2 rounded-t ${active ? 'bg-white text-blue-600 font-bold' : 'bg-blue-500 hover:bg-blue-400 text-white'}`;
+      tab.onclick = onClick;
+      return tab;
+    }
+
+    function loadArticleData(theme, file) {
+      fetch(`./${basePath}/${theme}/${file}`)
+        .then(res => res.json())
+        .then(data => {
+          content.innerHTML = '';
+          const title = document.createElement('h2');
+          title.className = 'text-xl font-bold';
+          title.textContent = data.titre || 'Articles';
+          content.appendChild(title);
+
+          data.articles.forEach(article => {
+            const articleEl = document.createElement('article');
+            articleEl.className = 'bg-white p-4 rounded shadow';
+
+            const h3 = document.createElement('h3');
+            h3.textContent = article.titre;
+            h3.className = 'text-lg font-semibold';
+            articleEl.appendChild(h3);
+
+            const p = document.createElement('p');
+            p.textContent = article.resume;
+            p.className = 'text-sm my-2';
+            articleEl.appendChild(p);
+
+            const ul = document.createElement('ul');
+            ul.className = 'list-disc pl-6 text-sm';
+            article.points.forEach(point => {
+              const li = document.createElement('li');
+              li.textContent = point;
+              ul.appendChild(li);
+            });
+            articleEl.appendChild(ul);
+
+            content.appendChild(articleEl);
+          });
+        });
+    }
+
+    function loadSubTabs(theme) {
+      currentTheme = theme;
+      subTabs.innerHTML = '';
+      structure[theme].forEach((file, index) => {
+        subTabs.appendChild(
+          createTab(file.replace('.json', ''), () => loadArticleData(theme, file), index === 0)
+        );
+      });
+      loadArticleData(theme, structure[theme][0]);
+    }
+
+    // Create main tabs
+    Object.keys(structure).forEach((theme, index) => {
+      mainTabs.appendChild(
+        createTab(theme.charAt(0).toUpperCase() + theme.slice(1), () => loadSubTabs(theme), index === 0)
+      );
+    });
+
+    // Load first theme by default
+    const firstTheme = Object.keys(structure)[0];
+    loadSubTabs(firstTheme);
+  </script>
+</body>
+</html>
