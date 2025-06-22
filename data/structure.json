@@ -2,8 +2,8 @@
   "fingerprinting": [
     "fingerprinting.json"
   ],
-  "TLS_client": [
-    "tls_client.json"
+  "Navigateurs-Web-de-Test": [
+    "Navigateurs_Web_de_Test.json"
   ],
   "VPN Maillé": [
     "vpn_maille.json"
