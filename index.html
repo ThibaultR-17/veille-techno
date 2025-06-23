@@ -4,125 +4,187 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Veille Technologique</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-gray-100 text-gray-900">
-  <header class="bg-blue-600 text-white p-4">
-    <h1 class="text-2xl font-bold">Veille Technologique</h1>
-    <nav id="main-tabs" class="flex space-x-4 mt-2"></nav>
+<body class="body">
+  <header class="header">
+    <h1 class="main-title">Veille Technologique</h1>
+    <nav id="main-tabs" class="tabs-container"></nav>
   </header>
 
-  <main class="p-4">
-    <div id="sub-tabs" class="flex space-x-4 mb-4"></div>
-    <section id="content" class="space-y-4"></section>
+  <main class="main-content">
+    <div id="sub-tabs" class="tabs-container sub-tabs"></div>
+
+    <section id="intro-container"></section>    
+
+    <section id="content" class="articles-container"></section>
   </main>
 
   <script>
-    const basePath = "data";
-
-    const mainTabs = document.getElementById('main-tabs');
-    const subTabs = document.getElementById('sub-tabs');
-    const content = document.getElementById('content');
-
-    let structure = {};
-    let currentTheme = null;
-
-    function createTab(name, onClick, active = false) {
-      const tab = document.createElement('button');
-      tab.textContent = name;
-      tab.className = `px-4 py-2 rounded-t ${active ? 'bg-white text-blue-600 font-bold' : 'bg-blue-500 hover:bg-blue-400 text-white'}`;
-      tab.onclick = onClick;
-      return tab;
-    }
-
-    function loadArticleData(theme, file) {
-      fetch(`./${basePath}/${theme}/${file}`)
-        .then(res => res.json())
-        .then(data => {
-          content.innerHTML = '';
-          const title = document.createElement('h2');
-          title.className = 'text-xl font-bold';
-          title.textContent = data.titre || 'Articles';
-          content.appendChild(title);
-
-          data.articles.forEach(article => {
-            const articleEl = document.createElement('article');
-            articleEl.className = 'bg-white p-4 rounded shadow';
-
-            const h3 = document.createElement('h3');
-            h3.textContent = article.titre;
-            h3.className = 'text-lg font-semibold';
-            articleEl.appendChild(h3);
-
-            // Lien affiché dans un paragraphe
-            if (article.lien) {
-                const linkEl = document.createElement('a');
-                linkEl.href = article.lien;
-                linkEl.target = '_blank';
-                linkEl.rel = 'noopener noreferrer';
-                linkEl.textContent = "Lire l'article";
-                linkEl.className = 'text-blue-600 hover:underline text-sm block mb-2';
-                articleEl.appendChild(linkEl);
-            }
+   const basePath = "data";
 
 
-            const p = document.createElement('p');
-            p.textContent = article.resume;
-            p.className = 'text-sm my-2 whitespace-pre-wrap'; // pour garder le format propre
-            articleEl.appendChild(p);
+const mainTabs = document.getElementById('main-tabs');
+const subTabs = document.getElementById('sub-tabs');
+const content = document.getElementById('content');
+const introContainer = document.getElementById('intro-container'); // conteneur dédié à l’intro
 
-            if (article.points && article.points.length > 0) {
-              const ul = document.createElement('ul');
-              ul.className = 'list-disc pl-6 text-sm';
-              article.points.forEach(point => {
-                const li = document.createElement('li');
-                li.textContent = point;
-                ul.appendChild(li);
-              });
-              articleEl.appendChild(ul);
-            }
+let structure = {};
+let currentTheme = null;
 
-            content.appendChild(articleEl);
-          });
-        })
-        .catch(err => {
-          content.innerHTML = `<p class="text-red-600">Erreur lors du chargement des données : ${err.message}</p>`;
-        });
-    }
+function createTab(name, onClick, active = false) {
+  const tab = document.createElement('button');
+  tab.textContent = name;
+  tab.className = `btn ${active ? 'btn-primary' : 'btn-outline'}`;
+  tab.onclick = () => {
+    activateTab(tab);
+    onClick();
+  };
+  return tab;
+}
 
-    function loadSubTabs(theme) {
-      currentTheme = theme;
-      subTabs.innerHTML = '';
-      const files = structure[theme];
-      files.forEach((file, index) => {
-        subTabs.appendChild(
-          createTab(file.replace('.json', ''), () => loadArticleData(theme, file), index === 0)
-        );
-      });
-      if (files.length > 0) loadArticleData(theme, files[0]);
-    }
+function activateTab(tab) {
+  const tabs = tab.parentElement.querySelectorAll('.btn');
+  tabs.forEach(t => {
+    t.classList.remove('btn-primary');
+    t.classList.add('btn-outline');
+  });
+  tab.classList.add('btn-primary');
+  tab.classList.remove('btn-outline');
+}
 
-    async function loadStructure() {
-      try {
-        const res = await fetch(`${basePath}/structure.json`);
-        structure = await res.json();
+function loadArticleData(theme, file) {
+  fetch(`./${basePath}/${theme}/${file}`)
+    .then(res => res.json())
+    .then(data => {
+      // Vider et créer l’intro dans son container dédié
+      introContainer.innerHTML = '';
+      if (data.introduction) {
+        const intro = document.createElement('div');
+        intro.className = 'intro-container';
 
-        Object.keys(structure).forEach((theme, index) => {
-          mainTabs.appendChild(
-            createTab(theme.charAt(0).toUpperCase() + theme.slice(1), () => loadSubTabs(theme), index === 0)
-          );
-        });
+        const introTitle = document.createElement('h2');
+        introTitle.className = 'intro-title';
+        introTitle.textContent = data.titre;
+        intro.appendChild(introTitle);
 
-        if (Object.keys(structure).length > 0) {
-          loadSubTabs(Object.keys(structure)[0]);
+        if (data.introduction.image && data.introduction.image.url) {
+          const img = document.createElement('img');
+          img.src = data.introduction.image.url;
+          img.alt = data.introduction.image.alt || 'Illustration';
+          img.className = 'intro-image';
+          intro.appendChild(img);
         }
-      } catch (err) {
-        console.error("Erreur lors du chargement de structure.json:", err);
-        content.innerHTML = `<p class="text-red-600">Erreur lors du chargement de la structure : ${err.message}</p>`;
-      }
-    }
 
-    loadStructure();
+        const introText = document.createElement('div');
+        introText.className = 'intro-text';
+        introText.innerHTML = data.introduction.texte.intro || '';
+        intro.appendChild(introText);
+
+        introContainer.appendChild(introText);
+      } else {
+        introContainer.innerHTML = '';
+      }
+
+      // Vider et remplir la section articles
+      content.innerHTML = '';
+
+      // Si pas d’intro, afficher titre dans la section articles
+      if (!data.introduction) {
+        const title = document.createElement('h2');
+        title.className = 'section-title';
+        title.textContent = data.titre || 'Articles';
+        content.appendChild(title);
+      }
+
+      // Trier et ajouter les articles
+      const sortedArticles = data.articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      sortedArticles.forEach(article => {
+        const articleEl = document.createElement('article');
+        articleEl.className = 'card';
+
+        const h3 = document.createElement('h3');
+        h3.textContent = article.titre;
+        h3.className = 'card-title';
+        articleEl.appendChild(h3);
+
+        const h4 = document.createElement('h4');
+        h4.textContent = article.date;
+        h4.className = 'card-date';
+        articleEl.appendChild(h4);
+
+        if (article.lien) {
+          const linkEl = document.createElement('a');
+          linkEl.href = article.lien;
+          linkEl.target = '_blank';
+          linkEl.rel = 'noopener noreferrer';
+          linkEl.textContent = "Lire l'article";
+          linkEl.className = 'article-link';
+          articleEl.appendChild(linkEl);
+        }
+
+        const p = document.createElement('p');
+        p.textContent = article.resume;
+        p.className = 'article-summary';
+        articleEl.appendChild(p);
+
+        if (article.points && article.points.length > 0) {
+          const ul = document.createElement('ul');
+          ul.className = 'article-points';
+          article.points.forEach(point => {
+            const li = document.createElement('li');
+            li.textContent = point;
+            ul.appendChild(li);
+          });
+          articleEl.appendChild(ul);
+        }
+
+        content.appendChild(articleEl);
+      });
+    })
+    .catch(err => {
+      introContainer.innerHTML = '';
+      content.innerHTML = `<p class="error-msg">Erreur lors du chargement des données : ${err.message}</p>`;
+    });
+}
+
+function loadSubTabs(theme) {
+  currentTheme = theme;
+  subTabs.innerHTML = '';
+  const files = structure[theme];
+  files.forEach((file, index) => {
+    subTabs.appendChild(
+      createTab(file.replace('.json', ''), () => loadArticleData(theme, file), index === 0)
+    );
+  });
+  if (files.length > 0) loadArticleData(theme, files[0]);
+}
+
+async function loadStructure() {
+  try {
+    const res = await fetch(`${basePath}/structure.json`);
+    structure = await res.json();
+
+    Object.keys(structure).forEach((theme, index) => {
+      mainTabs.appendChild(
+        createTab(theme.charAt(0).toUpperCase() + theme.slice(1), () => loadSubTabs(theme), index === 0)
+      );
+    });
+
+    if (Object.keys(structure).length > 0) {
+      loadSubTabs(Object.keys(structure)[0]);
+    }
+  } catch (err) {
+    console.error("Erreur lors du chargement de structure.json:", err);
+    introContainer.innerHTML = '';
+    content.innerHTML = `<p class="error-msg">Erreur lors du chargement de la structure : ${err.message}</p>`;
+  }
+}
+
+loadStructure();
+
+
   </script>
 </body>
 </html>
