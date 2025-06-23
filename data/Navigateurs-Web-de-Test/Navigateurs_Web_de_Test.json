@@ -12,52 +12,52 @@
   "articles": [
     {
       "titre": "Playwright vs Puppeteer : Comparaison en 2025",
-      "date": "2025-06-01",
+      "date": "2025-03-31",
       "resume": "Cet article compare les deux frameworks d'automatisation web Playwright et Puppeteer, en mettant l'accent sur leurs différences clés. Il détaille la prise en charge multi-navigateurs de Playwright contre le focus initial sur Chromium de Puppeteer. La comparaison aborde aussi la facilité d'utilisation, les performances, la gestion des tests sur mobile et la stabilité des API.",
       "points": ["Playwright", "Puppeteer", "Automatisation", "Multi-navigateurs", "Performance"],
-      "lien": "https://bugbug.io/blog/testing-frameworks/playwright-vs-puppeteer/?utm_source=chatgpt.com"
+      "lien": "https://bugbug.io/blog/testing-frameworks/playwright-vs-puppeteer"
     },
     {
       "titre": "Puppeteer vs Playwright : Guide du développeur pour choisir le bon outil en 2025",
-      "date": "2025-06-05",
+      "date": "2025-02-04",
       "resume": "Analyse approfondie des avantages et limites de Puppeteer et Playwright : couverture des navigateurs, documentation, communauté, intégration CI/CD. Des cas concrets illustrent leur utilisation dans des scénarios de tests complexes.",
       "points": ["Puppeteer", "Playwright", "CI/CD", "Tests end-to-end", "Communauté"],
-      "lien": "https://rebrowser.net/blog/puppeteer-vs-playwright-a-developers-guide-to-choosing-the-right-tool?utm_source=chatgpt.com"
+      "lien": "https://rebrowser.net/blog/puppeteer-vs-playwright-a-developers-guide-to-choosing-the-right-tool"
     },
     {
       "titre": "Playwright vs Selenium : Comparaison des performances en 2025",
-      "date": "2025-06-10",
+      "date": "2025-02-10",
       "resume": "Une étude comparative entre Playwright et Selenium sur les performances, la rapidité, l’ergonomie et la facilité d’intégration dans des workflows automatisés. Playwright ressort comme un outil moderne et plus agile.",
       "points": ["Playwright", "Selenium", "Performance", "Scraping", "Tests automatisés"],
-      "lien": "https://www.webscrapinghq.com/blog/playwright-vs-selenium-performance-comparison-2025?utm_source=chatgpt.com"
+      "lien": "https://www.webscrapinghq.com/blog/playwright-vs-selenium-performance-comparison-2025"
     },
     {
       "titre": "Le futur de l'automatisation web : Comment Playwright surpasse Selenium en 2025",
-      "date": "2025-06-12",
+      "date": "2025-02-10",
       "resume": "Playwright s’impose comme une alternative moderne à Selenium, grâce à son API robuste, son support natif de tests mobiles, et sa rapidité. L’article discute des cas d’usage et des limites de Selenium.",
       "points": ["Playwright", "Selenium", "Automatisation", "Tests mobiles", "API moderne"],
-      "lien": "https://medium.com/@dulajgamage7/the-future-of-web-automation-how-playwright-outshines-selenium-in-2025-c287081098f3?utm_source=chatgpt.com"
+      "lien": "https://medium.com/@dulajgamage7/the-future-of-web-automation-how-playwright-outshines-selenium-in-2025-c287081098f3"
     },
     {
       "titre": "Comparaison technique approfondie : Playwright vs Cypress vs Selenium — 2025",
-      "date": "2025-06-15",
+      "date": "2025-05-15",
       "resume": "Une comparaison technique des trois outils populaires pour les tests web automatisés : Playwright, Cypress et Selenium. L’article détaille l’installation, les performances, les intégrations CI/CD et le support des tests asynchrones.",
       "points": ["Playwright", "Cypress", "Selenium", "Tests asynchrones", "CI/CD"],
-      "lien": "https://manishsaini74.medium.com/the-ultimate-showdown-playwright-vs-cypress-vs-selenium-a-technical-deep-dive-for-2025-d5e6552a337a?utm_source=chatgpt.com"
+      "lien": "https://man ishsaini74.medium.com/the-ultimate-showdown-playwright-vs-cypress-vs-selenium-a-technical-deep-dive-for-2025-d5e6552a337a"
     },
     {
       "titre": "Automatisation des applications web : Génération de cas de test de bout en bout avec des modèles de langage et des graphes de transition d'écran",
-      "date": "2025-06-18",
+      "date": "2025-06-03",
       "resume": "Recherche innovante combinant IA et modélisation de parcours utilisateur pour automatiser la génération de tests. Permet une couverture plus large des cas d’usage sans rédaction manuelle des scénarios.",
       "points": ["Automatisation", "Tests end-to-end", "Modèles de langage", "Graphes de transition", "Recherche"],
-      "lien": "https://arxiv.org/abs/2506.02529?utm_source=chatgpt.com"
+      "lien": "https://arxiv.org/abs/2506.02529"
     },
     {
       "titre": "Comparaison des outils d'automatisation du navigateur : Puppeteer, Playwright, Selenium",
-      "date": "2025-06-20",
+      "date": "2025-06-23",
       "resume": "Un comparatif équilibré entre Puppeteer, Playwright et Selenium, avec un focus sur leur maintenabilité, rapidité d’exécution, et intégration dans les projets web modernes. L’objectif est d’aider les équipes QA à choisir l’outil adapté à leurs besoins.",
       "points": ["Puppeteer", "Playwright", "Selenium", "Comparaison", "Maintenance"],
-      "lien": "https://evomi.com/blog/puppeteer-playwright-selenium-showdown?utm_source=chatgpt.com"
+      "lien": "https://evomi.com/blog/puppeteer-playwright-selenium-showdown"
     }
   ]
 }

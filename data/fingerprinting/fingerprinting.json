@@ -12,42 +12,42 @@
   "articles": [
     {
       "titre": "VPNs cannot protect against browser fingerprinting – but this new web browser could be the fix",
-      "date": "2025-06-17",
+      "date": "2025-06-21",
       "resume": "Psylo, un navigateur mobile conçu par les chercheurs Talal Haj Bakry et Tommy Mysk, vise à combattre le fingerprinting mieux qu’un VPN. Il utilise un système d’« onglets silo » isolés, chacun avec son propre stockage, cookies, adresse IP via plus de 40 proxy mondiaux, fuseau horaire et langue distincts. Psylo applique aussi des techniques anti-fingerprinting comme la randomisation du canvas et des caractéristiques « fuzzy ». Il ne nécessite pas de compte, suit une stricte politique no‑log, et propose un essai gratuit de 3 jours depuis sa sortie le 17 juin 2025. Disponible sur iOS/iPadOS (et potentiellement Android selon l’adoption), Psylo offre une protection avancée pour ceux qui veulent échapper au tracking numérique que les VPN ne bloquent pas",
       "points": ["Psylo", "onglets silo", "proxy global", "canvas randomisation", "no‑log"],
       "lien": "https://www.techradar.com/vpn/vpn-privacy-security/vpns-cannot-protect-against-browser-fingerprinting-but-this-new-web-browser-could-be-the-fix"
     },
     {
       "titre": "Google Autorise le Fingerprinting : La Fin de la Vie Privée ?",
-      "date": "2025-02-08",
+      "date": "2025-02-18",
       "resume": "Google a mis à jour sa politique publicitaire en février 2025, autorisant les annonceurs à recourir au fingerprinting, une technique de suivi basée sur des paramètres matériels et logiciels. Contrairement aux cookies, ce suivi est difficile à détecter ou bloquer. Cette décision inquiète les régulateurs (CNIL, ICO) et des ONG comme l’EFF, qui craignent un profilage intensif des utilisateurs. Le fingerprinting pourrait s’étendre aux objets connectés et ne nécessite aucun consentement explicite. Des navigateurs alternatifs comme Brave ou Firefox sont recommandés pour limiter l’exposition.",
       "points": ["Google", "suivi publicitaire", "EFF", "CNIL", "cookies vs fingerprinting"],
       "lien": "https://innovations.fr/google-autorise-le-fingerprinting-la-fin-de-la-vie-privee/"
     },
     {
       "titre": "Browser Fingerprinting Using WebAssembly",
-      "date": "2025-06-03",
+      "date": "2025-05-31",
       "resume": "Des chercheurs ont démontré que WebAssembly permet un fingerprinting plus précis des navigateurs et appareils que JavaScript seul. En exploitant les temps d'exécution des instructions Wasm et les API bas niveau, ils identifient de subtiles différences entre plateformes. Le modèle fonctionne sur diverses architectures (Intel, AMD, ARM) et environnements (VM, mobiles). Le taux de faux positifs est inférieur à 1 %, même dans des systèmes virtualisés. L’étude propose aussi des pistes de mitigation pour les navigateurs.",
       "points": ["WebAssembly", "timing attacks", "API bas niveau", "virtualisation", "mitigation"],
       "lien": "https://arxiv.org/abs/2506.00719"
     },
     {
       "titre": "Tracking UWB Devices Through Radio Frequency Fingerprinting Is Possible",
-      "date": "2025-01-11",
+      "date": "2025-01-08",
       "resume": "Cette étude montre qu'il est possible de suivre des dispositifs UWB à l’aide de leur empreinte radio. Un modèle de deep learning a été entraîné à identifier des appareils commerciaux selon leur signature RF. Les résultats atteignent 99 % de précision dans des contextes connus et restent performants dans des environnements inconnus. Cela soulève des préoccupations de confidentialité physique concernant les appareils connectés utilisant l’UWB.",
       "points": ["UWB", "radio fingerprinting", "deep learning", "traçabilité", "signature matérielle"],
       "lien": "https://arxiv.org/abs/2501.04401"
     },
     {
       "titre": "Fingerprinting and Tracing Shadows: The Development and Impact of Browser Fingerprinting on Digital Privacy",
-      "date": "2024-11-21",
+      "date": "2024-11-18",
       "resume": "Ce document académique retrace l’évolution du fingerprinting navigateur, ses techniques et son impact sur la vie privée. Il analyse les éléments collectés (Canvas, WebGL, entêtes HTTP…), leur unicité (entropie) et les risques légaux (RGPD). L’article recommande des contre-mesures comme l’usage de navigateurs respectueux de la vie privée, des extensions et l’obfuscation des caractéristiques techniques.",
       "points": ["Canvas/WebGL", "entropie", "RGPD", "extensions", "protection vie privée"],
       "lien": "https://arxiv.org/abs/2411.12045"
     },
     {
       "titre": "The First Early Evidence of the Use of Browser Fingerprinting for Online Tracking",
-      "date": "2024-09-26",
+      "date": "2024-09-24",
       "resume": "Ce papier présente FPTrace, un outil d’évaluation du fingerprinting publicitaire. En simulant différents fingerprintings, les auteurs démontrent que des changements de profil influencent directement les enchères publicitaires et prouvent l’usage effectif du fingerprinting pour le ciblage. Cette utilisation viole potentiellement les réglementations comme le RGPD, car elle contourne le consentement de l’utilisateur.",
       "points": ["FPTrace", "ciblage pub", "enchères temps réel", "RGPD", "consentement contourné"],
       "lien": "https://arxiv.org/abs/2409.15656"

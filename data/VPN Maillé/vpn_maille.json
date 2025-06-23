@@ -15,49 +15,56 @@
       "date": "2024-11-01",
       "resume": "Configurez pas à pas un VPN dans un réseau mesh, avec un focus sur les routeurs Deco, les protocoles supportés (OpenVPN, L2TP, PPTP) et les considérations de sécurité.",
       "points": ["Configuration pas à pas", "Protocoles VPN", "Routeurs Deco", "Sécurité sur mesh"],
-      "lien": "https://meshzoom.com/configuring-vpn-on-mesh/?utm_source=chatgpt.com"
+      "lien": "https://meshzoom.com/configuring-vpn-on-mesh"
     },
     {
       "titre": "Unlock Ultimate Online Freedom: A Complete Guide to Setting Up Your Mesh Network VPN",
       "date": "2024-10-10",
       "resume": "Découvrez la liberté numérique offerte par un VPN maillé : anonymat, contournement de la censure, sécurité peer-to-peer. L’article propose un guide matériel et des conseils de déploiement.",
       "points": ["Vie privée", "Liberté numérique", "Installation VPN mesh", "Contournement de la censure"],
-      "lien": "https://meshzoom.com/mesh-network-vpn/?utm_source=chatgpt.com"
+      "lien": "https://meshzoom.com/mesh-network-vpn"
     },
+
     {
-      "titre": "Switcher’s Guide to Mesh VPNs: Pros, Cons, and How to Set Up Key Features",
-      "date": "2024-08-05",
-      "resume": "Un guide de transition vers les VPN maillés : comparaison avantages/inconvénients, cas d’usage, outils comme Tailscale ou Netmaker, et conseils de configuration.",
-      "points": ["Résilience", "Peer-to-peer", "Tailscale/Netmaker", "Guide de migration"],
-      "lien": "https://saasnewstoday.com/2024/08/05/switchers-guide-to-mesh-vpns-pros-cons-and-how-to-set-up-key-features/?utm_source=chatgpt.com"
+      "titre": "Firewalla MSP Release 2.1.0: Reports, Better VPN Mesh, and Controlled Updates",
+      "date": "2024-06-20",
+      "resume": "Présentation de la version 2.1.0 du Firewalla MSP avec des améliorations dans les rapports, un VPN maillé optimisé pour une meilleure performance et stabilité, ainsi que des mises à jour contrôlées pour une gestion centralisée plus efficace.",
+      "points": [
+        "Amélioration des rapports détaillés",
+        "Optimisation du VPN maillé",
+        "Mises à jour contrôlées centralisées",
+        "Support amélioré pour la gestion MSP"
+      ],
+      "lien": "https://help.firewalla.com/hc/en-us/articles/18855067734163-MSP-Release-2-1-0-Reports-Better-VPN-Mesh-and-Controlled-Updates"
     },
+
     {
       "titre": "Understanding Mesh VPNs",
       "date": "2024-09-15",
       "resume": "Tailscale propose une explication limpide du fonctionnement d’un VPN maillé avec WireGuard, incluant NAT traversal, peer-to-peer, et configuration automatique.",
       "points": ["Tailscale", "WireGuard", "NAT traversal", "VPN automatique"],
-      "lien": "https://tailscale.com/learn/understanding-mesh-vpns?utm_source=chatgpt.com"
+      "lien": "https://tailscale.com/learn/understanding-mesh-vpns"
     },
     {
       "titre": "Overlay Networks, SDN, SD‑WAN & Mesh VPN: Similarities & Differences",
-      "date": "2024-12-20",
+      "date": "2023-03-23",
       "resume": "Un comparatif utile pour situer les VPN maillés face aux réseaux overlay, SDN et SD-WAN : flexibilité, coûts, évolutivité et cas d’usage en entreprise.",
       "points": ["Comparaison SD-WAN", "Overlay networks", "Architecture réseau", "Mesh scalable"],
-      "lien": "https://www.netmaker.io/resources/overlay-networks-software-defined-networks-sd-wan-and-mesh-vpn-understanding-the-similarities-and-differences?utm_source=chatgpt.com"
+      "lien": "https://www.netmaker.io/resources/overlay-networks-software-defined-networks-sd-wan-and-mesh-vpn-understanding-the-similarities-and-differences"
     },
     {
       "titre": "The Potential of Mesh VPNs for Decentralized Network Security",
-      "date": "2025-01-12",
+      "date": "2024-02-24",
       "resume": "Une réflexion approfondie sur le rôle des VPN maillés dans les architectures décentralisées : sécurité renforcée, tolérance aux pannes, confidentialité et gouvernance distribuée.",
       "points": ["Décentralisation", "Sécurité renforcée", "Tolérance aux pannes", "Confidentialité"],
       "lien": "https://medium.com/@glofwdbk9r/the-potential-of-mesh-vpns-for-decentralized-network-security-4029a141502d"
     },
     {
       "titre": "When to Use a Mesh VPN and Four Signs You Shouldn’t",
-      "date": "2024-11-28",
+      "date": "2025-01-07",
       "resume": "L’article propose des critères concrets pour savoir quand (ne pas) adopter un VPN maillé. Il aborde les problématiques de performance, complexité d’administration et expertise requise.",
       "points": ["Cas d’usage", "Limitations", "Performance", "Administration réseau"],
-      "lien": "https://www.techrepublic.com/article/mesh-vpn/?utm_source=chatgpt.com"
+      "lien": "https://www.techrepublic.com/article/mesh-vpn"
     }
   ]
 }
